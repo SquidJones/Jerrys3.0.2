@@ -1,10 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnskob0yb8d7s"]
+[gd_scene load_steps=9 format=3 uid="uid://cnskob0yb8d7s"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_3qw4k"]
 [ext_resource type="FontFile" uid="uid://c6twmicnrxjpl" path="res://assests/fonts/PixelOperator8.ttf" id="1_7aowt"]
 [ext_resource type="Texture2D" uid="uid://de1nqojewqgon" path="res://assests/sprites/MenuBG.png" id="2_ldwjv"]
 [ext_resource type="FontFile" uid="uid://c3c1rpy57y80q" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="2_vkrqr"]
+[ext_resource type="FontFile" uid="uid://dfumamu530erb" path="res://assests/fonts/tatula.ttf" id="4_uwrna"]
 [ext_resource type="Texture2D" uid="uid://coink7w2xpk41" path="res://assests/sprites/Play_Button.png" id="5_pkmso"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_58oyj"]
+font = ExtResource("4_uwrna")
+font_size = 121
+outline_size = 10
+outline_color = Color(0.61, 0, 0, 1)
+shadow_size = 36
+shadow_color = Color(0.235433, 0.114807, 0.116632, 1)
+shadow_offset = Vector2(5.685, 4.06)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bld37"]
+font_color = Color(0.179491, 0.378742, 0.17634, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -49,8 +62,18 @@ theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("2_vkrqr")
 theme_override_font_sizes/font_size = 64
 text = "Jerry's 3.0.2"
+label_settings = SubResource("LabelSettings_58oyj")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Label"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 551.0
+offset_right = 113.0
+offset_bottom = 574.0
+text = "hey its me jerry"
+label_settings = SubResource("LabelSettings_bld37")
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer"]
 layout_mode = 2
