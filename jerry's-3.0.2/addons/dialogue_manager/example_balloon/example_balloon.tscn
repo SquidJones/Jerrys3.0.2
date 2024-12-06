@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://73jm5qjy52vq"]
+[gd_scene load_steps=10 format=3 uid="uid://73jm5qjy52vq"]
 
 [ext_resource type="Script" path="res://addons/dialogue_manager/example_balloon/example_balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="Texture2D" uid="uid://cchu225or4m7" path="res://assests/sprites/waiterdialogue.png" id="2_kdn6k"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_72ixx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
@@ -104,7 +105,10 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Balloon/Panel/Dialogue/HBoxContainer"]
+custom_minimum_size = Vector2(119.205, 152.96)
 layout_mode = 2
+texture = ExtResource("2_kdn6k")
+expand_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Balloon/Panel/Dialogue/HBoxContainer"]
 layout_mode = 2
