@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cchu225or4m7"
-path="res://.godot/imported/waiterdialogue.png-0acfe71ea59cae47a51aff549ff1e8d7.ctex"
+uid="uid://dbcmvx6l6yu04"
+path="res://.godot/imported/you.png-830abff427709acfef22a6116be99b13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/sprites/waiterdialogue.png"
-dest_files=["res://.godot/imported/waiterdialogue.png-0acfe71ea59cae47a51aff549ff1e8d7.ctex"]
+source_file="res://assests/sprites/you.png"
+dest_files=["res://.godot/imported/you.png-830abff427709acfef22a6116be99b13.ctex"]
 
 [params]
 

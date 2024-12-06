@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bkupnt06g674o"]
+[gd_scene load_steps=24 format=3 uid="uid://bkupnt06g674o"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jlae7"]
 [ext_resource type="Texture2D" uid="uid://doq2qfchmahow" path="res://assests/sprites/charcter.png" id="2_e0b28"]
@@ -143,6 +143,9 @@ height = 14.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_0gs4s"]
 radius = 1.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rrvs0"]
+radius = 3.16228
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_jlae7")
 
@@ -176,6 +179,18 @@ visible = false
 position = Vector2(3.57628e-07, 0)
 scale = Vector2(0.256093, 0.256094)
 texture = ExtResource("3_uvc7y")
+
+[node name="Direction" type="Marker2D" parent="."]
+
+[node name="ActionableFinder" type="Area2D" parent="Direction"]
+modulate = Color(0, 0.888778, 0.895701, 1)
+collision_layer = 0
+collision_mask = 16
+
+[node name="ActionableFinder" type="CollisionShape2D" parent="Direction/ActionableFinder"]
+modulate = Color(0, 0.843137, 0.847059, 1)
+position = Vector2(5, -2)
+shape = SubResource("CircleShape2D_rrvs0")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="AtkTimer" to="." method="_on_atk_timer_timeout"]

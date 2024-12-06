@@ -1,15 +1,18 @@
-[gd_scene load_steps=14 format=4 uid="uid://dtgsasa5mnqj0"]
+[gd_scene load_steps=18 format=4 uid="uid://dtgsasa5mnqj0"]
 
 [ext_resource type="PackedScene" uid="uid://bkupnt06g674o" path="res://scenes/player.tscn" id="1_1ie52"]
 [ext_resource type="Texture2D" uid="uid://dsu5pgn6mthxl" path="res://assests/sprites/world_tileset.png" id="1_2xsbq"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_3na0v"]
 [ext_resource type="Texture2D" uid="uid://b0qjp71cg6ffw" path="res://assests/sprites/NightCity1.png" id="1_sxevq"]
 [ext_resource type="PackedScene" uid="uid://o0qxiaa3eglk" path="res://scenes/killzone.tscn" id="3_tfjft"]
 [ext_resource type="Script" path="res://scripts/ui_container.gd" id="4_jhgkf"]
-[ext_resource type="PackedScene" uid="uid://iff8s3pudygx" path="res://scenes/food.tscn" id="5_880gl"]
 [ext_resource type="PackedScene" uid="uid://lamxek1cafbf" path="res://scenes/Inventory/inventory_ui.tscn" id="5_h402n"]
 [ext_resource type="PackedScene" uid="uid://cbs5gf1uwi5i4" path="res://scenes/resources/items/fruit.tscn" id="6_ko4be"]
 [ext_resource type="Resource" uid="uid://cnk5hlsrj21f5" path="res://scenes/resources/items/Mango.tres" id="7_5sjon"]
 [ext_resource type="Resource" uid="uid://bapqrxow6v6t7" path="res://scenes/resources/items/Apple.tres" id="7_trkg3"]
+[ext_resource type="Texture2D" uid="uid://b4u4l1thbcqu" path="res://assests/sprites/boxingbag.png" id="11_rowe4"]
+[ext_resource type="PackedScene" uid="uid://tlg2tthj64pq" path="res://scenes/actionable.tscn" id="12_e4xk1"]
+[ext_resource type="Resource" uid="uid://byp26n68edpu6" path="res://dialogue/dialogue.dialogue" id="13_jb3pp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2bpbq"]
 texture = ExtResource("1_2xsbq")
@@ -184,7 +187,11 @@ sources/0 = SubResource("TileSetAtlasSource_2bpbq")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dm6iy"]
 distance = -286.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_uc76l"]
+radius = 11.0454
+
 [node name="main" type="Node2D"]
+script = ExtResource("1_3na0v")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 8
@@ -251,11 +258,6 @@ offset_bottom = 80.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="food" parent="." instance=ExtResource("5_880gl")]
-visible = false
-position = Vector2(-63, 60)
-scale = Vector2(1.37988, 1.36662)
-
 [node name="Collectables" type="Node" parent="."]
 
 [node name="Apple" parent="Collectables" instance=ExtResource("6_ko4be")]
@@ -301,3 +303,15 @@ collectable_data = ExtResource("7_5sjon")
 
 [node name="Grape4" parent="Collectables" instance=ExtResource("6_ko4be")]
 position = Vector2(202, 233)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-58, 55)
+texture = ExtResource("11_rowe4")
+
+[node name="Actionable" parent="Sprite2D" instance=ExtResource("12_e4xk1")]
+position = Vector2(0, 2)
+dialogue_resource = ExtResource("13_jb3pp")
+dialogue_start = "start "
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Actionable"]
+shape = SubResource("CircleShape2D_uc76l")

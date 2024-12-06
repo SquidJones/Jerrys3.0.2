@@ -11,6 +11,8 @@ func _on_body_entered(body: Node2D) -> void:
 		print(" found: " + collectable_data.item_name)
 		if body.inventory_conponent.check_inventory_contents(collectable_data) == true:
 			body.inventory_conponent.add_item(collectable_data)
+			if collectable_data.item_ID == 000 and State.apple_status == "none":
+				State.apple_status = "has"
 			queue_free()
 		else:
 			print("fuck off")

@@ -12,7 +12,8 @@ const JUMP_VELOCITY = -300.0
 @onready var hit: Area2D = $hit
 @onready var collision_shape: CollisionShape2D = $hit/hitarea
 @onready var sprite: Sprite2D = $hit/hitarea/Sprite2D
-
+@onready var actionable_finder: CollisionShape2D = $Direction/ActionableFinder/ActionableFinder
+@onready var actionable_finderArea: Area2D = $Direction/ActionableFinder
 
 var atk = false
 var canatk = true
@@ -37,6 +38,14 @@ func main() -> void:
 		collision_shape.set_deferred("disabled", false)
 		atk_timer.start()
 		sprite.visible = true
+		
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("SpeechTest"):
+		var actionables = actionable_finderArea.get_overlapping_areas()
+		if actionables.size() > 0:
+			actionables[0].action()
+			return
+	
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -50,9 +59,11 @@ func _physics_process(delta: float) -> void:
 	if direction < 0:
 		animated_sprite.flip_h = true
 		collision_shape.position.x = -8
+		actionable_finder.position.x = -8
 	elif direction > 0:
 		animated_sprite.flip_h = false
 		collision_shape.position.x = 8
+		actionable_finder.position.x = 8
 	
 	if atk == false:
 		if is_on_floor():
