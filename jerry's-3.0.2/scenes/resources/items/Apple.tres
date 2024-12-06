@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://bapqrxow6v6t7"]
+
+[ext_resource type="Script" path="res://scenes/resources/items/item_data.gd" id="1_y34jk"]
+
+[resource]
+script = ExtResource("1_y34jk")
+item_ID = 0
+item_name = "Apple"
+item_texr = 0
+item_stack_size = 12

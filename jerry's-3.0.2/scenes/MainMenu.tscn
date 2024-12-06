@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnskob0yb8d7s"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_3qw4k"]
+[ext_resource type="FontFile" uid="uid://c6twmicnrxjpl" path="res://assests/fonts/PixelOperator8.ttf" id="1_7aowt"]
+[ext_resource type="Texture2D" uid="uid://de1nqojewqgon" path="res://assests/sprites/MenuBG.png" id="2_ldwjv"]
+[ext_resource type="FontFile" uid="uid://c3c1rpy57y80q" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="2_vkrqr"]
+[ext_resource type="Texture2D" uid="uid://coink7w2xpk41" path="res://assests/sprites/Play_Button.png" id="5_pkmso"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3qw4k")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ldwjv")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Seperator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_vkrqr")
+theme_override_font_sizes/font_size = 64
+text = "Jerry's 3.0.2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 92
+
+[node name="Seperator2" type="Control" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Seperator3" type="Control" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Seperator4" type="Control" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Start" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_7aowt")
+theme_override_font_sizes/font_size = 32
+theme_override_icons/icon = ExtResource("5_pkmso")
+action_mode = 0
+text = "Start Game."
+
+[node name="Exit" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_7aowt")
+theme_override_font_sizes/font_size = 32
+text = "Fuck Off."
+
+[connection signal="pressed" from="MarginContainer/GridContainer/Start" to="." method="_on_start_pressed"]

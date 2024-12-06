@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://bes7mmn0bdm3o"]
+
+[ext_resource type="Script" path="res://scenes/resources/items/item_data.gd" id="1_0gd6s"]
+
+[resource]
+script = ExtResource("1_0gd6s")
+item_ID = 2
+item_name = "Grape"
+item_texr = 8
+item_stack_size = 2

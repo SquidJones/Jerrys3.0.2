@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://iff8s3pudygx"]
+
+[ext_resource type="Texture2D" uid="uid://b2nlb4mpngoml" path="res://assests/sprites/food.png" id="1_rqrvj"]
+[ext_resource type="Script" path="res://scripts/food.gd" id="1_un5qs"]
+[ext_resource type="Texture2D" uid="uid://b4u4l1thbcqu" path="res://assests/sprites/boxingbag.png" id="3_lwber"]
+[ext_resource type="FontFile" uid="uid://c6twmicnrxjpl" path="res://assests/fonts/PixelOperator8.ttf" id="4_31rwi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yekc"]
+atlas = ExtResource("1_rqrvj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji1he"]
+atlas = ExtResource("1_rqrvj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7qwy"]
+atlas = ExtResource("1_rqrvj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxrpo"]
+atlas = ExtResource("1_rqrvj")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1och0"]
+atlas = ExtResource("3_lwber")
+region = Rect2(0, 0, 16, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8l8l6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yekc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji1he")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7qwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxrpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1och0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2qsl"]
+size = Vector2(8, 10)
+
+[node name="food" type="Area2D"]
+script = ExtResource("1_un5qs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, -5)
+scale = Vector2(0.875, 0.861842)
+sprite_frames = SubResource("SpriteFrames_8l8l6")
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, -7)
+shape = SubResource("RectangleShape2D_u2qsl")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -3.0
+offset_top = -24.0
+offset_right = 14.0
+offset_bottom = -16.0
+theme_override_fonts/font = ExtResource("4_31rwi")
+theme_override_font_sizes/font_size = 8
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
