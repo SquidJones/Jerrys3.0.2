@@ -44,12 +44,8 @@ var dialogue_line: DialogueLine:
 		var portrait_path : String = "res://assests/sprites/%s.png" % dialogue_line.character.to_lower()
 		if FileAccess.file_exists(portrait_path):
 			portrait.texture = load(portrait_path)
-			print(portrait_path)
-			print("yep")
 		else:
 			portrait.texture = null
-			print("no")
-			print(portrait_path)
 
 		dialogue_label.hide()
 		dialogue_label.dialogue_line = dialogue_line

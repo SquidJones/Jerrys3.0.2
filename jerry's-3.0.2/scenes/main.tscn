@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cbs5gf1uwi5i4" path="res://scenes/resources/items/fruit.tscn" id="6_ko4be"]
 [ext_resource type="Resource" uid="uid://cnk5hlsrj21f5" path="res://scenes/resources/items/Mango.tres" id="7_5sjon"]
 [ext_resource type="Resource" uid="uid://bapqrxow6v6t7" path="res://scenes/resources/items/Apple.tres" id="7_trkg3"]
-[ext_resource type="Texture2D" uid="uid://b4u4l1thbcqu" path="res://assests/sprites/boxingbag.png" id="11_rowe4"]
+[ext_resource type="Texture2D" uid="uid://dbp0c05ea7qmo" path="res://assests/sprites/waiter.png" id="11_sw2x4"]
 [ext_resource type="PackedScene" uid="uid://tlg2tthj64pq" path="res://scenes/actionable.tscn" id="12_e4xk1"]
 [ext_resource type="Resource" uid="uid://byp26n68edpu6" path="res://dialogue/dialogue.dialogue" id="13_jb3pp"]
 
@@ -306,7 +306,7 @@ position = Vector2(202, 233)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-58, 55)
-texture = ExtResource("11_rowe4")
+texture = ExtResource("11_sw2x4")
 
 [node name="Actionable" parent="Sprite2D" instance=ExtResource("12_e4xk1")]
 position = Vector2(0, 2)
@@ -314,4 +314,5 @@ dialogue_resource = ExtResource("13_jb3pp")
 dialogue_start = "start "
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Actionable"]
+scale = Vector2(0.52, 0.8)
 shape = SubResource("CircleShape2D_uc76l")
