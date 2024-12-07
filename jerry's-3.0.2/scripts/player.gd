@@ -6,6 +6,7 @@ const SPEED = 130.0
 const DASH_SPEED = 260.0
 const JUMP_VELOCITY = -300.0
 
+@onready var damage_area: CollisionShape2D = $DamageArea
 @onready var timer: Timer = $Timer
 @onready var atk_timer: Timer = $AtkTimer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -65,8 +66,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("dash") and can_dash == true:
 		dashing = true
 		can_dash = false
+		damage_area.disabled = true
 		await get_tree().create_timer(0.2).timeout
 		dashing = false
+		damage_area.disabled = false
 		await get_tree().create_timer(5).timeout
 		can_dash = true
 
