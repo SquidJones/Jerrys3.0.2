@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 
 const SPEED = 130.0
+const DASH_SPEED = 260.0
 const JUMP_VELOCITY = -300.0
 
 @onready var timer: Timer = $Timer
@@ -20,6 +21,8 @@ var canatk = true
 var inventory_conponent : InventoryComponent = InventoryComponent.new()
 var jump_count = 0
 var max_jumps = 2
+var dashing = false
+var can_dash = true
 
 func _on_atk_timer_timeout() -> void:
 	canatk = true
@@ -58,7 +61,15 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and jump_count < max_jumps:
 		jump_count += 1
 		velocity.y = JUMP_VELOCITY
-		
+	
+	if Input.is_action_just_pressed("dash") and can_dash == true:
+		dashing = true
+		can_dash = false
+		await get_tree().create_timer(0.2).timeout
+		dashing = false
+		await get_tree().create_timer(5).timeout
+		can_dash = true
+
 	
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction < 0:
@@ -81,7 +92,10 @@ func _physics_process(delta: float) -> void:
 		
 	
 	if direction:
-		velocity.x = direction * SPEED
+		if dashing == true:
+			velocity.x = direction * DASH_SPEED
+		else:
+			velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
