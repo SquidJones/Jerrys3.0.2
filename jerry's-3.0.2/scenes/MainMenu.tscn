@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnskob0yb8d7s"]
+[gd_scene load_steps=11 format=3 uid="uid://cnskob0yb8d7s"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_3qw4k"]
 [ext_resource type="FontFile" uid="uid://c6twmicnrxjpl" path="res://assests/fonts/PixelOperator8.ttf" id="1_7aowt"]
@@ -6,6 +6,8 @@
 [ext_resource type="FontFile" uid="uid://c3c1rpy57y80q" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="2_vkrqr"]
 [ext_resource type="FontFile" uid="uid://dfumamu530erb" path="res://assests/fonts/tatula.ttf" id="4_uwrna"]
 [ext_resource type="Texture2D" uid="uid://coink7w2xpk41" path="res://assests/sprites/Play_Button.png" id="5_pkmso"]
+[ext_resource type="Texture2D" uid="uid://cayg03qsnbr5j" path="res://assests/sprites/Play_ButtonPressed.png" id="6_4shq4"]
+[ext_resource type="Texture2D" uid="uid://c20qcp2hvvbk2" path="res://assests/sprites/Play_ButtonHovered.png" id="7_injnv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_58oyj"]
 font = ExtResource("4_uwrna")
@@ -51,7 +53,7 @@ theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 60
+theme_override_constants/separation = 40
 
 [node name="Seperator" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -78,7 +80,7 @@ label_settings = SubResource("LabelSettings_bld37")
 [node name="GridContainer" type="GridContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/h_separation = 32
+theme_override_constants/h_separation = 1830
 theme_override_constants/v_separation = 92
 
 [node name="Seperator2" type="Control" parent="MarginContainer/GridContainer"]
@@ -91,14 +93,12 @@ size_flags_vertical = 4
 [node name="Seperator4" type="Control" parent="MarginContainer/GridContainer"]
 layout_mode = 2
 
-[node name="Start" type="Button" parent="MarginContainer/GridContainer"]
+[node name="Start" type="TextureButton" parent="MarginContainer/GridContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_7aowt")
-theme_override_font_sizes/font_size = 32
-theme_override_icons/icon = ExtResource("5_pkmso")
-action_mode = 0
-flat = true
-icon_alignment = 1
+texture_normal = ExtResource("5_pkmso")
+texture_pressed = ExtResource("6_4shq4")
+texture_hover = ExtResource("7_injnv")
+stretch_mode = 3
 
 [node name="Exit" type="Button" parent="MarginContainer/GridContainer"]
 layout_mode = 2

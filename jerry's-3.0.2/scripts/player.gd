@@ -18,6 +18,8 @@ const JUMP_VELOCITY = -300.0
 var atk = false
 var canatk = true
 var inventory_conponent : InventoryComponent = InventoryComponent.new()
+var jump_count = 0
+var max_jumps = 2
 
 func _on_atk_timer_timeout() -> void:
 	canatk = true
@@ -49,9 +51,12 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	elif is_on_floor():
+		jump_count = 0
 	
 	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and jump_count < max_jumps:
+		jump_count += 1
 		velocity.y = JUMP_VELOCITY
 		
 	
